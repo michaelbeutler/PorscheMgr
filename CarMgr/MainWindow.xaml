@@ -1,0 +1,221 @@
+﻿<Window x:Class="CarMgr.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarMgr"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        Background="White"
+        BorderThickness="5"
+        BorderBrush="#313639"
+        Title="CarMgr" Height="500" Width="800">
+    <Window.Resources>
+               
+        <Style TargetType="Button" x:Key="DarkGreyButton">
+            <Setter Property="Background" Value="#313639" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#d5001c" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="WhiteButton">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#313639" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#d5001c" />
+                    <Setter Property="BorderBrush" Value="#d5001c" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="WhiteButtonBorder">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#313639" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="2" BorderBrush="#e3e4e4" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#d5001c" />
+                    <Setter Property="BorderBrush" Value="#d5001c" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="CloseButton">
+            <Setter Property="Background" Value="#d5001c" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#f90020" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Background="#313639" MouseDown="Window_MouseDown">
+                <Button Click="ButtonClose_Click" Width="50" DockPanel.Dock="Right" Style="{StaticResource CloseButton}">
+                    <TextBlock FontSize="20" Text="X" VerticalAlignment="Center" />
+                </Button>
+                <TextBlock FontFamily="Arial" FontSize="18" VerticalAlignment="Center" Foreground="White" Margin="10, 5, 5, 5" Text="CarMgr" />
+            </DockPanel>
+            <DockPanel>
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Background="#eff0f1">
+                        <Button Height="30" Style="{StaticResource DarkGreyButton}" Margin="10" Click="ButtonConfigure_Click">Konfigurieren</Button>
+                    </StackPanel>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel DockPanel.Dock="Left" Background="#eff0f1">
+                            <!--<Image Source="C:\Users\winmed\Documents\Visual Studio 2015\Projects\PorscheConfigurator\PorscheConfigurator\images\911\911_Carrera\911_Carrera.jpg" Width="250" />-->
+                            <TextBlock Margin="15" FontSize="20" Text="Porsche 911 Carrera" HorizontalAlignment="Center" FontWeight="Bold" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackPanel Width="100"  Grid.Column="0" Background="LightGray" Margin="10, 10, 10, 0">
+                                    <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="270 PS" Margin="5, 5, 5, 2" />
+                                    <TextBlock HorizontalAlignment="Center" Text="6500 1/min" Margin="0, 0, 0, 5" />
+                                </StackPanel>
+                                <StackPanel Width="100"  Grid.Column="1" Background="LightGray" Margin="10, 10, 10, 0">
+                                    <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="450 Nm" Margin="5, 5, 5, 2" />
+                                    <TextBlock HorizontalAlignment="Center" Text="6500 1/min" Margin="0, 0, 0, 5" />
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <!--0-100-->
+                                <TextBlock Text="0-100 km/h" Grid.Column="0" Grid.Row="0" />
+                                <TextBlock Text="4.6s" Grid.Column="1" Grid.Row="0" />
+
+                                <!--kw-->
+                                <TextBlock Text="Top Speed" Grid.Column="0" Grid.Row="1" />
+                                <TextBlock Text="295 km/h" Grid.Column="1" Grid.Row="1" />
+
+                                <!--kw-->
+                                <TextBlock Text="Zylinderzahl" Grid.Column="0" Grid.Row="2" />
+                                <TextBlock Text="6" Grid.Column="1" Grid.Row="2" />
+
+                                <!--kw-->
+                                <TextBlock Text="Hubraum" Grid.Column="0" Grid.Row="3" />
+                                <TextBlock Text="2'981 cm³" Grid.Column="1" Grid.Row="3" />
+
+                                <!--kw-->
+                                <TextBlock Text="Antriebsart" Grid.Column="0" Grid.Row="4" />
+                                <TextBlock Text="AWD" Grid.Column="1" Grid.Row="4" />
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DockPanel>
+                <Grid Margin="10" x:Name="CarList">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Grid.Row="0">
+                        <Image Source="C:\Users\winmed\Documents\Visual Studio 2015\Projects\PorscheConfigurator\PorscheConfigurator\images\911\911_Carrera\911_Carrera.jpg" Width="150" />
+                        <TextBlock Text="Porsche 911 Carrera" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="2" />
+                        <TextBlock Text="CHF 90'000.0 exkl. MwST." HorizontalAlignment="Center" />
+                        <Button Style="{StaticResource WhiteButtonBorder}" Width="150" Margin="0, 10, 0, 0" Click="ButtonConfigure_Click">Konfigurieren</Button>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+        
+    </Grid>
+</Window>
