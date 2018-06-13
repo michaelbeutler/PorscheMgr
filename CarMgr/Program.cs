@@ -6,12 +6,13 @@ namespace CarMgr
 {
 	public class Program
 	{
-		private ICarConfiguratorDAO dao = new MySQL();
-		private FrontController frontController;
+		private static ICarConfiguratorDAO dao = new MySQL();
+		private static FrontController frontController;
+        private static CarBuilder carbuilder = new CarBuilder();
 
-		public List<Car> GetAllCars()
+		public static List<Car> GetAllCars()
 		{
-			throw new NotImplementedException();
+            return carbuilder.Build(dao.GetAllCars());
 		}
 	}
 }

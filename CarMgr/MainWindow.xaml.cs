@@ -22,32 +22,32 @@ namespace CarMgr
         public MainWindow()
         {
             InitializeComponent();
-            for (int i = 0; i < 3; i++)
+            foreach (Car c in Program.GetAllCars())
             {
-                AddCar();
+                AddCar(c);
             }
         }
 
         private int x = 1;
         private int y = 0;
-        private void AddCar()
+        private void AddCar(Car c)
         {
 
             StackPanel panel = new StackPanel();
 
             Image image = new Image();
-            //image.Source = new BitmapImage(new Uri("C:\\Users\\winmed\\Documents\\Visual Studio 2015\\Projects\\PorscheConfigurator\\PorscheConfigurator\\images\\911\\911_Carrera\\911_Carrera.jpg"));
+            image.Source = new BitmapImage(new Uri(c.Image));
             image.Width = 150;
 
             TextBlock textblockName = new TextBlock();
-            textblockName.Text = "Porsche 911 Carrera";
+            textblockName.Text = c.Brand.Name + " " + c.Name;
             textblockName.HorizontalAlignment = HorizontalAlignment.Center;
             textblockName.FontSize = 12;
             textblockName.FontWeight = FontWeights.Bold;
             textblockName.Margin = new Thickness(2, 2, 2, 2);
 
             TextBlock textblockPrice = new TextBlock();
-            textblockPrice.Text = "CHF 90'000.0 exkl. MwST.";
+            textblockPrice.Text = "CHF " + c.Price +  " exkl. MwST.";
             textblockPrice.HorizontalAlignment = HorizontalAlignment.Center;
 
             Button button = new Button();

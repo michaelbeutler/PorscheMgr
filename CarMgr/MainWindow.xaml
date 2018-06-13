@@ -207,12 +207,6 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Grid.Row="0">
-                        <Image Source="C:\Users\winmed\Documents\Visual Studio 2015\Projects\PorscheConfigurator\PorscheConfigurator\images\911\911_Carrera\911_Carrera.jpg" Width="150" />
-                        <TextBlock Text="Porsche 911 Carrera" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Margin="2" />
-                        <TextBlock Text="CHF 90'000.0 exkl. MwST." HorizontalAlignment="Center" />
-                        <Button Style="{StaticResource WhiteButtonBorder}" Width="150" Margin="0, 10, 0, 0" Click="ButtonConfigure_Click">Konfigurieren</Button>
-                    </StackPanel>
                 </Grid>
             </DockPanel>
         </DockPanel>
