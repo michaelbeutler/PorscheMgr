@@ -35,26 +35,34 @@ namespace CarMgr
 
             StackPanel panel = new StackPanel();
 
-            Image image = new Image();
-            //image.Source = new BitmapImage(new Uri("C:\\Users\\winmed\\Documents\\Visual Studio 2015\\Projects\\PorscheConfigurator\\PorscheConfigurator\\images\\911\\911_Carrera\\911_Carrera.jpg"));
-            image.Width = 150;
+            Image image = new Image
+            {
+                //image.Source = new BitmapImage(new Uri("C:\\Users\\winmed\\Documents\\Visual Studio 2015\\Projects\\PorscheConfigurator\\PorscheConfigurator\\images\\911\\911_Carrera\\911_Carrera.jpg"));
+                Width = 150
+            };
 
-            TextBlock textblockName = new TextBlock();
-            textblockName.Text = "Porsche 911 Carrera";
-            textblockName.HorizontalAlignment = HorizontalAlignment.Center;
-            textblockName.FontSize = 12;
-            textblockName.FontWeight = FontWeights.Bold;
-            textblockName.Margin = new Thickness(2, 2, 2, 2);
+            TextBlock textblockName = new TextBlock
+            {
+                Text = "Porsche 911 Carrera",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                FontSize = 12,
+                FontWeight = FontWeights.Bold,
+                Margin = new Thickness(2, 2, 2, 2)
+            };
 
-            TextBlock textblockPrice = new TextBlock();
-            textblockPrice.Text = "CHF 90'000.0 exkl. MwST.";
-            textblockPrice.HorizontalAlignment = HorizontalAlignment.Center;
+            TextBlock textblockPrice = new TextBlock
+            {
+                Text = "CHF 90'000.0 exkl. MwST.",
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
 
-            Button button = new Button();
-            button.Content = "Konfigurieren";
-            button.Margin = new Thickness(0, 10, 0, 0);
-            button.Width = 150;
-            button.Style = (Style)FindResource("WhiteButtonBorder");
+            Button button = new Button
+            {
+                Content = "Konfigurieren",
+                Margin = new Thickness(0, 10, 0, 0),
+                Width = 150,
+                Style = (Style)FindResource("WhiteButtonBorder")
+            };
             button.Click += new RoutedEventHandler(ButtonConfigure_Click);
 
             panel.Children.Add(image);
