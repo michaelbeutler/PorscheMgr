@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -28,7 +29,7 @@ namespace CarMgr
             }
         }
 
-        private int x = 1;
+        private int x = 0;
         private int y = 0;
         private void AddCar(Car c)
         {
@@ -36,7 +37,11 @@ namespace CarMgr
             StackPanel panel = new StackPanel();
 
             Image image = new Image();
-            image.Source = new BitmapImage(new Uri(c.Image));
+            //image.Source = new BitmapImage(new Uri(c.Image));
+            if (File.Exists(c.Image))
+            {
+                image.Source = new BitmapImage(new Uri(c.Image, UriKind.RelativeOrAbsolute));
+            }
             image.Width = 150;
 
             TextBlock textblockName = new TextBlock();
@@ -55,13 +60,12 @@ namespace CarMgr
             button.Margin = new Thickness(0, 10, 0, 0);
             button.Width = 150;
             button.Style = (Style)FindResource("WhiteButtonBorder");
-            button.Click += new RoutedEventHandler(ButtonConfigure_Click);
+            button.Click += delegate (object sender, RoutedEventArgs e) { ButtonConfigure_Click(sender, e, c); };
 
             panel.Children.Add(image);
             panel.Children.Add(textblockName);
             panel.Children.Add(textblockPrice);
             panel.Children.Add(button);
-
  
             panel.SetValue(Grid.ColumnProperty, x);
             panel.SetValue(Grid.RowProperty, y);
@@ -90,9 +94,9 @@ namespace CarMgr
             this.Close();
         }
 
-        private void ButtonConfigure_Click(object sender, RoutedEventArgs e)
+        private void ButtonConfigure_Click(object sender, RoutedEventArgs e, Car c)
         {
-            new Configure().Show();
+            new Configure(c).Show();
         }
     }
 }

@@ -41,7 +41,7 @@ namespace CarMgr
             double maxPowerAtRpm = double.Parse(row["engine_maxpowerrpm"].ToString());
             double maxTorque = double.Parse(row["engine_maxtorque"].ToString());
             double maxEngineSpeed = double.Parse(row["engine_maxenginespeed"].ToString());
-            Engine engine = new Engine(engineLayout, engineDesign, cylinderNum, bore, stroke, displacement, maxEngineSpeed, maxPowerAtRpm, maxTorque, maxEngineSpeed);
+            Engine engine = new Engine(engineLayout, engineDesign, cylinderNum, bore, stroke, displacement, maxPower, maxPowerAtRpm, maxTorque, maxEngineSpeed);
 
             // Body
             string bodyType = row["body_type"].ToString();
