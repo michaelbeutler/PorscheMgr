@@ -12,7 +12,7 @@
         Background="White"
         BorderThickness="5"
         BorderBrush="#313639"
-        Title="CarMgr" Height="500" Width="800">
+        Title="CarMgr" Height="550" Width="800">
     <Window.Resources>
                
         <Style TargetType="Button" x:Key="DarkGreyButton">
@@ -122,10 +122,20 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#f90020" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Border" x:Key="BorderCar">
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="#c1d9ff" />
+                    <Setter Property="Cursor" Value="Hand" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -141,13 +151,13 @@
             <DockPanel>
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Bottom" Background="#eff0f1">
-                        <Button Height="30" Style="{StaticResource DarkGreyButton}" Margin="10">Konfigurieren</Button>
+                        <Button Name="Details_Button" Height="30" Style="{StaticResource DarkGreyButton}" Margin="10">Konfigurieren</Button>
                     </StackPanel>
 
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel DockPanel.Dock="Left" Background="#eff0f1">
                             <!--<Image Source="C:\Users\winmed\Documents\Visual Studio 2015\Projects\PorscheConfigurator\PorscheConfigurator\images\911\911_Carrera\911_Carrera.jpg" Width="250" />-->
-                            <TextBlock Margin="15" FontSize="20" Text="Porsche 911 Carrera" HorizontalAlignment="Center" FontWeight="Bold" />
+                            <TextBlock Margin="15" FontSize="20" Name="Details_Name" Text="Porsche 911 Carrera" HorizontalAlignment="Center" FontWeight="Bold" />
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -157,12 +167,12 @@
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <StackPanel Width="100"  Grid.Column="0" Background="LightGray" Margin="10, 10, 10, 0">
-                                    <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="270 PS" Margin="5, 5, 5, 2" />
-                                    <TextBlock HorizontalAlignment="Center" Text="6500 1/min" Margin="0, 0, 0, 5" />
+                                    <TextBlock Name="Details_PS" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="270 PS" Margin="5, 5, 5, 2" />
+                                    <TextBlock Name="Details_PS_At_Rpm" HorizontalAlignment="Center" Text="6500 1/min" Margin="0, 0, 0, 5" />
                                 </StackPanel>
                                 <StackPanel Width="100"  Grid.Column="1" Background="LightGray" Margin="10, 10, 10, 0">
-                                    <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="450 Nm" Margin="5, 5, 5, 2" />
-                                    <TextBlock HorizontalAlignment="Center" Text="6500 1/min" Margin="0, 0, 0, 5" />
+                                    <TextBlock Name="Details_Nm" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="450 Nm" Margin="5, 5, 5, 2" />
+                                    <TextBlock Name="Details_Nm_At_Rpm" HorizontalAlignment="Center" Text="6500 1/min" Margin="0, 0, 0, 5" />
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="20">
@@ -180,34 +190,36 @@
                                 </Grid.RowDefinitions>
                                 <!--0-100-->
                                 <TextBlock Text="0-100 km/h" Grid.Column="0" Grid.Row="0" />
-                                <TextBlock Text="4.6s" Grid.Column="1" Grid.Row="0" />
+                                <TextBlock Name="Details_ZeroToSixyt" Text="4.6s" Grid.Column="1" Grid.Row="0" />
 
                                 <!--kw-->
                                 <TextBlock Text="Top Speed" Grid.Column="0" Grid.Row="1" />
-                                <TextBlock Text="295 km/h" Grid.Column="1" Grid.Row="1" />
+                                <TextBlock Name="Details_MaxTrackSpeed" Text="295 km/h" Grid.Column="1" Grid.Row="1" />
 
                                 <!--kw-->
                                 <TextBlock Text="Zylinderzahl" Grid.Column="0" Grid.Row="2" />
-                                <TextBlock Text="6" Grid.Column="1" Grid.Row="2" />
+                                <TextBlock Name="Details_CylinderNum" Text="6" Grid.Column="1" Grid.Row="2" />
 
                                 <!--kw-->
                                 <TextBlock Text="Hubraum" Grid.Column="0" Grid.Row="3" />
-                                <TextBlock Text="2'981 cm³" Grid.Column="1" Grid.Row="3" />
+                                <TextBlock Name="Details_Displacment" Text="2'981 cm³" Grid.Column="1" Grid.Row="3" />
 
                                 <!--kw-->
                                 <TextBlock Text="Antriebsart" Grid.Column="0" Grid.Row="4" />
-                                <TextBlock Text="AWD" Grid.Column="1" Grid.Row="4" />
+                                <TextBlock Name="Details_DriveTrain" Text="AWD" Grid.Column="1" Grid.Row="4" />
                             </Grid>
                         </StackPanel>
                     </ScrollViewer>
                 </DockPanel>
-                <Grid Margin="10" x:Name="CarList">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                </Grid>
+                <ScrollViewer>
+                    <Grid Margin="10" x:Name="CarList">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ScrollViewer>
             </DockPanel>
         </DockPanel>
         
