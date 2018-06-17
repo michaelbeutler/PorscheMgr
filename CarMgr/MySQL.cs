@@ -22,10 +22,10 @@ namespace CarMgr
 
         private void Initialize()
         {
-            server = "localhost";
+            server = "iperka.com";
             database = "carmgr_db";
-            username = "root";
-            password = "";
+            username = "carmgr";
+            password = "0eCfmWWcumi3HtYS";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";" + "SslMode=none";
