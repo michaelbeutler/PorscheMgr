@@ -83,7 +83,7 @@ namespace CarMgr
             DataTable dataTable;
             if (Open())
             {
-                string query = "SELECT * FROM `tbl_car` LEFT JOIN `tbl_brand` ON `tbl_car`.`brand` = `tbl_brand`.`brand_id` LEFT JOIN `tbl_engine` ON `tbl_car`.`engine` = `tbl_engine`.`brand_id`LEFT JOIN `tbl_transmission` ON `tbl_car`.`transmission` = `tbl_transmission`.`brand_id` LEFT JOIN `tbl_fuelconsumption` ON `tbl_car`.`fuelconsumption` = `tbl_fuelconsumption`.`fuelconsumption_id` LEFT JOIN `tbl_chassisandsuspension` ON `tbl_car`.`chassisandsuspension` = `tbl_chassisandsuspension`.`chassisandsuspension_id` LEFT JOIN `tbl_body` ON `tbl_car`.`id` = `tbl_body`.`body_id` LEFT JOIN `tbl_performance` ON `tbl_car`.`performance` = `tbl_performance`.`performance_id`";
+                string query = "SELECT * FROM `tbl_car` LEFT JOIN `tbl_brand` ON `tbl_car`.`brand_id` = `tbl_brand`.`brand_id` LEFT JOIN `tbl_engine` ON `tbl_car`.`engine_id` = `tbl_engine`.`engine_id`LEFT JOIN `tbl_transmission` ON `tbl_car`.`transmission_id` = `tbl_transmission`.`transmission_id` LEFT JOIN `tbl_fuelconsumption` ON `tbl_car`.`fuelconsumption_id` = `tbl_fuelconsumption`.`fuelconsumption_id` LEFT JOIN `tbl_chassisandsuspension` ON `tbl_car`.`chassisandsuspension_id` = `tbl_chassisandsuspension`.`chassisandsuspension_id` LEFT JOIN `tbl_body` ON `tbl_car`.`body_id` = `tbl_body`.`body_id` LEFT JOIN `tbl_performance` ON `tbl_car`.`performance_id` = `tbl_performance`.`performance_id`";
 
                 MySqlCommand command = connection.CreateCommand();
                 command.CommandText = query;

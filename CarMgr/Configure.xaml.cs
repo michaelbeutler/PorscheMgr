@@ -18,9 +18,17 @@ namespace CarMgr
     /// </summary>
     public partial class Configure : Window
     {
-        public Configure()
+        public Configure(Car c)
         {
             InitializeComponent();
+            Load(c);
+        }
+
+        private void Load(Car c)
+        {
+            CarName.Text = c.Brand.Name + " " + c.Name;
+            MaxPower.Text = c.Engine.MaxPower + " PS";
+            MaxTorque.Text = c.Engine.MaxTorque + " Nm";
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

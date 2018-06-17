@@ -16,6 +16,6 @@ namespace CarMgr
         }
 
         public double TopTrackSpeed { get => topTrackSpeed; set => topTrackSpeed = value; }
-        protected double ZeroToSixty { get => zeroToSixty; set => zeroToSixty = value; }
+        public double ZeroToSixty { get => zeroToSixty; set => zeroToSixty = value; }
 	}
 }

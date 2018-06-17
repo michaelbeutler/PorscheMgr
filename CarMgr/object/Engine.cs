@@ -15,7 +15,7 @@ namespace CarMgr
 		private double maxPower;
 		private double maxPowerAtRpm;
 		private double maxTorque;
-		double maxEngineSpeed;
+		private double maxEngineSpeed;
 		private string image;
 
 		public Engine(string engineLayout, string engineDesign, int cylinderNum, double bore, double stroke, double displacement, double maxPower, double maxPowerAtRPM, double maxTorque, double maxEngineSpeed)
@@ -27,9 +27,9 @@ namespace CarMgr
             Stroke = stroke;
             Displacement = displacement;
             MaxPower = maxPower;
-            MaxPowerAtRpm = maxPowerAtRpm;
+            MaxPowerAtRpm = maxPowerAtRPM;
             MaxTorque = maxTorque;
-            MaxEngineSpeed = MaxEngineSpeed;
+            MaxEngineSpeed = maxEngineSpeed;
 		}
 
         public string EngineLayout { get => engineLayout; set => engineLayout = value; }
