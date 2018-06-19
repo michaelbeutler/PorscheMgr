@@ -158,9 +158,14 @@
                                 <TextBlock Name="PartPrice" FontSize="16" Text="Gesamtpreis Ausstattung: 0.00 CHF" />
                                 <TextBlock Name="TotalPrice" FontSize="16" FontWeight="Bold" Text="Gesamtpreis*: 128'000.00 CHF" />
                             </StackPanel>
-                            <StackPanel Name="CarPartList">
-                                
-                            </StackPanel>
+                            <ScrollViewer Name="_Scrollviewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="100">
+                                <Grid x:Name="CarPartList" Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </ScrollViewer>
                         </DockPanel>
                     </DockPanel>
                     <StackPanel Orientation="Horizontal" Background="LightGray">

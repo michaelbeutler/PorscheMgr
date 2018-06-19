@@ -18,31 +18,35 @@ namespace CarMgr
     /// </summary>
     public partial class Configure : Window
     {
-        private Car car;
-        private double priceParts = 0.0;
-        private double horsepower = 0.0;
+        private ConfCar configuration;
+        
         public Configure(Car c)
         {
-            car = c;
+            configuration = new ConfCar(c);
             InitializeComponent();
-            Load(c);
+            Load();
             foreach (Part part in Program.GetAllParts(c))
             {
                 AddPartToList(part);
             }
         }
 
-        private void Load(Car c)
+        private void Load()
         {
-            CarName.Text = c.Brand.Name + " " + c.Name;
-            BasePrice.Text = "Fahrzeuggrundpreis: " + c.Price + " CHF";
-            PartPrice.Text = "Gesamtpreis Ausstattung: " + priceParts + " CHF";
-            TotalPrice.Text = "Gesamtpreis*: " + (c.Price + priceParts) + " CHF";
-            MaxPower.Text = c.Engine.MaxPower + " PS";
-            MaxTorque.Text = c.Engine.MaxTorque + " Nm";
-            Displacment.Text = c.Engine.Displacement + " cm³";
-            ZeroToSixty.Text = c.Performance.ZeroToSixty + " s";
-            MaxTrackSpeed.Text = c.Performance.TopTrackSpeed + " km/h";
+            CarName.Text = configuration.CarBase.Brand.Name + " " + configuration.CarBase.Name;
+            BasePrice.Text = "Fahrzeuggrundpreis: " + configuration.GetCarBasePrice();
+            PartPrice.Text = "Gesamtpreis Ausstattung: " + configuration.GetPartPrice();
+            TotalPrice.Text = "Gesamtpreis*: " + configuration.GetTotalPrice();
+            MaxPower.Text = (configuration.CarBase.Engine.MaxPower + configuration.Horsepower) + " PS";
+            MaxTorque.Text = (configuration.CarBase.Engine.MaxTorque + configuration.Torque) + " Nm";
+            Displacment.Text = (configuration.CarBase.Engine.Displacement + configuration.Displacment) + " cm³";
+            ZeroToSixty.Text = (configuration.CarBase.Performance.ZeroToSixty + configuration.ZeroToSixty) + " s";
+            MaxTrackSpeed.Text = (configuration.CarBase.Performance.TopTrackSpeed + configuration.TopTrackSpeed) + " km/h";
+        }
+
+        private string GetDiffValue()
+        {
+            return null;
         }
 
         private void AddPartToList(Part part)
@@ -66,7 +70,7 @@ namespace CarMgr
             add.FontSize = 16;
             add.Width = 50;
             add.HorizontalAlignment = HorizontalAlignment.Left;
-            add.Click += delegate (object sender, RoutedEventArgs e) { ButtonAdd_Click(sender, e, part); };
+            add.Click += delegate (object sender, RoutedEventArgs e) { ButtonAddRemove_Click(sender, e, part); };
 
             panel.Children.Add(name);
             panel.Children.Add(price);
@@ -75,47 +79,50 @@ namespace CarMgr
             PartList.Children.Add(panel);
         }
 
+        int y = 0;
         private void AddPartToCar(Part p)
         {
-            if (p is PerformancePart)
-            {
-                PerformancePart p1 = p as PerformancePart;
-                horsepower += p1.MaxPower;
-                car.Engine.MaxPower = car.Engine.MaxPower + p1.MaxPower;
-                if (p1.MaxPower < 0)
-                {
-                    MaxPower_Diff.Foreground = (Brush)new BrushConverter().ConvertFrom("#d5001c");
-                    MaxPower_Diff.Text = horsepower.ToString();
-                } else if (p1.MaxPower > 0)
-                {
-                    MaxPower_Diff.Text = "+" + horsepower.ToString() + " PS";
-                }
-                priceParts += p.Price;
-                Load(car);
-            }
-
-            StackPanel panel = new StackPanel();
-            panel.Orientation = Orientation.Horizontal;
-            panel.Margin = new Thickness(10, 10, 10, 0);
+            configuration.AddPart(p);
+            Load();
 
             TextBlock name = new TextBlock();
             name.Text = p.Name;
             name.Margin = new Thickness(0, 0, 50, 0);
+            name.SetValue(Grid.ColumnProperty, 0);
+            name.SetValue(Grid.RowProperty, y);
 
             TextBlock price = new TextBlock();
             price.Text = "CHF " + p.Price;
+            price.SetValue(Grid.ColumnProperty, 1);
+            price.SetValue(Grid.RowProperty, y);
 
-            panel.Children.Add(name);
-            panel.Children.Add(price);
-            CarPartList.Children.Add(panel);
-             
+            CarPartList.RowDefinitions.Add(new RowDefinition());
+            CarPartList.Children.Add(name);
+            CarPartList.Children.Add(price);
+            y++;
+            _Scrollviewer.ScrollToEnd();
         }
 
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e, Part p)
+        private void RemovePartFromCar(Part p)
         {
-            AddPartToCar(p);
+            configuration.RemovePart(p);
+            Load();
+        }
+
+        private void ButtonAddRemove_Click(object sender, RoutedEventArgs e, Part p)
+        {
+            
             Button btn = e.Source as Button;
-            btn.Content = "-";
+
+            if (btn.Content.Equals("+"))
+            {
+                AddPartToCar(p);
+                btn.Content = "-";
+            } else
+            {
+                RemovePartFromCar(p);
+                btn.Content = "+";
+            }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
