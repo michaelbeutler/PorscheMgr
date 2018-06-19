@@ -24,8 +24,8 @@ namespace CarMgr
         {
             server = "localhost";
             database = "carmgr_db";
-            username = "root";
-            password = "";
+            username = "carmgr";
+            password = "UuP@QaZnz`%92TvF";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";" + "SslMode=none";
@@ -66,7 +66,7 @@ namespace CarMgr
                         MessageBox.Show("Invalid username/password, please try again");
                         break;
                 }
-                //MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
                 return false;
             }
         }
