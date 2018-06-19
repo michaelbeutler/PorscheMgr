@@ -10,7 +10,7 @@ namespace CarMgr
 
 		public Body(string bodyType)
 		{
-			throw new NotImplementedException();
+            BodyType = bodyType;
 		}
 
         public string BodyType { get => bodyType; set => bodyType = value; }

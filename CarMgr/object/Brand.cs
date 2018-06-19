@@ -10,7 +10,7 @@ namespace CarMgr
 
 		public Brand(string name)
 		{
-			throw new NotImplementedException();
+            Name = name;
 		}
 
         public string Name { get => name; set => name = value; }

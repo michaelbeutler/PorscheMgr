@@ -48,4 +48,5 @@ namespace CarMgr
         public Transmission Transmission { get => transmission; set => transmission = value; }
         public List<Part> Parts { get => parts; set => parts = value; }
 	}
+
 }
