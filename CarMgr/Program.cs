@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace CarMgr
 {
@@ -12,7 +13,15 @@ namespace CarMgr
 
 		public static List<Car> GetAllCars()
 		{
-            return carbuilder.Build(dao.GetAllCars());
+            if (dao.Test())
+            {
+                return carbuilder.Build(dao.GetAllCars());
+            } else
+            {
+                MessageBox.Show("Connection invalid");
+                Environment.Exit(-1);
+                return null;
+            }
 		}
 	}
 }
