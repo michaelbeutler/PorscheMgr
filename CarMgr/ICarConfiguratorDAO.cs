@@ -8,7 +8,7 @@ namespace CarMgr
 	public interface ICarConfiguratorDAO
 	{
 		DataTable GetAllCars();
-		DataTable GetAllParts();
+		DataTable GetAllParts(Car c);
 		bool Test();
 	}
 }

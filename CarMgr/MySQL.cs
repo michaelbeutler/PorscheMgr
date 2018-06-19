@@ -22,10 +22,10 @@ namespace CarMgr
 
         private void Initialize()
         {
-            server = "iperka.com";
+            server = "localhost";
             database = "carmgr_db";
-            username = "carmgr";
-            password = "0eCfmWWcumi3HtYS";
+            username = "root";
+            password = "";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";" + "SslMode=none";
@@ -42,7 +42,7 @@ namespace CarMgr
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
                 return false;
             }
         }
@@ -66,7 +66,7 @@ namespace CarMgr
                         MessageBox.Show("Invalid username/password, please try again");
                         break;
                 }
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
                 return false;
             }
         }
@@ -100,8 +100,25 @@ namespace CarMgr
             return null;
         }
 
-        public DataTable GetAllParts()
+        public DataTable GetAllParts(Car c)
         {
+            DataTable dataTable;
+            if (Open())
+            {
+                string query = "SELECT * FROM tbl_partlist LEFT JOIN tbl_part ON tbl_partlist.part_id=tbl_part.part_id WHERE car_id=" + c.ID + ";";
+
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = query;
+                MySqlDataReader reader;
+
+                reader = command.ExecuteReader();
+                dataTable = new DataTable();
+
+                dataTable.Load(reader);
+
+                Close();
+                return dataTable;
+            }
             return null;
         }
 

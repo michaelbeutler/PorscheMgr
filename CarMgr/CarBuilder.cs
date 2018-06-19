@@ -26,6 +26,7 @@ namespace CarMgr
         private Car Pharse(DataRow row)
         {
             // Car
+            int id = int.Parse(row["car_id"].ToString());
             string name = row["car_name"].ToString();
             int year = int.Parse(row["car_year"].ToString());
             double price = double.Parse(row["car_price"].ToString());
@@ -80,7 +81,7 @@ namespace CarMgr
             string automaticTransmission = row["transmission_automatictransmission"].ToString();
             Transmission transmission = new Transmission(drivetrain, manualTransmission, automaticTransmission);
 
-            Car car = new Car(name, year, image, price, engine, body, chassisAndSuspension, fuelConsumption, brand, performance, transmission);
+            Car car = new Car(id, name, year, image, price, engine, body, chassisAndSuspension, fuelConsumption, brand, performance, transmission);
             return car;
         }
 	}
