@@ -6,6 +6,7 @@ namespace CarMgr
 {
 	public class Car
 	{
+        private int id;
 		private string name;
 		private int year;
 		private string image;
@@ -19,8 +20,9 @@ namespace CarMgr
 		private Transmission transmission;
 		private List<Part> parts;
 
-        public Car(string name, int year, string image, double price, Engine engine, Body body, ChassisAndSuspension chassisAndSuspension, FuelConsumption fuelConsumption, Brand brand, Performance performance, Transmission transmission)
+        public Car(int id, string name, int year, string image, double price, Engine engine, Body body, ChassisAndSuspension chassisAndSuspension, FuelConsumption fuelConsumption, Brand brand, Performance performance, Transmission transmission)
         {
+            ID = id;
             Name = name;
             Year = year;
             Image = image;
@@ -35,6 +37,7 @@ namespace CarMgr
             Parts = new List<Part>();
         }
 
+        public int ID { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public int Year { get => year; set => year = value; }
         public string Image { get => image; set => image = value; }
@@ -47,6 +50,6 @@ namespace CarMgr
         public Performance Performance { get => performance; set => performance = value; }
         public Transmission Transmission { get => transmission; set => transmission = value; }
         public List<Part> Parts { get => parts; set => parts = value; }
-	}
+    }
 
 }

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarMgr.App" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.CarBuilder" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CarBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Configure" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAgAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Configure.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarMgr.Dispatcher" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dispatcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.FrontController" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FrontController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABACAAAAAQAAAAAAAAAAAABhAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarMgr.MySQL" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAIQBAAAABAAEAAAAAEAAAAAAACgCAAAI=</HashCode>
+      <FileName>MySQL.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CarMgr.Body" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>object\Body.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Brand" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>object\Brand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Car" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGlAAAABQAAEAAAABABAAQAEQAFABAABQAQAAQBoAA=</HashCode>
+      <FileName>object\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.ChassisAndSuspension" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAACAAAAkgAAAJACAAAAQgAAIEQAAAAEAAAA=</HashCode>
+      <FileName>object\ChassisAndSuspension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Engine" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>pAAABCJAAAQAQBAAhQAQAAsAEAgIABAIAAAAAAAAAAA=</HashCode>
+      <FileName>object\Engine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.FuelConsumption" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAgAAAAIAAAIACAACAAgAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>object\FuelConsumption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.OpticPart" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>object\OpticPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Part" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQAgAAAAIAAAAAQAEAAEABAAAAAAAAAAAAA=</HashCode>
+      <FileName>object\Part.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Performance" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAAAIAA=</HashCode>
+      <FileName>object\Performance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.PerformancePart" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAABIEAAASAADAABAAQAAgAAAgIAAAIAQAAAAAEIAA=</HashCode>
+      <FileName>object\PerformancePart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Transmission" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAEAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAABAA=</HashCode>
+      <FileName>object\Transmission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Program" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Properties.Resources" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Properties.Settings" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CarMgr.ICarConfiguratorDAO" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAEAAAAAAACAAAAAA=</HashCode>
+      <FileName>ICarConfiguratorDAO.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

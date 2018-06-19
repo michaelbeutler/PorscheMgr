@@ -154,138 +154,44 @@
                             </StackPanel>
                             <StackPanel DockPanel.Dock="Bottom" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                                 <Rectangle Fill="#d5001c" Height="2"/>
-                                <TextBlock FontSize="16" Text="Fahrzeuggrundpreis: 128'000.00 CHF" />
-                                <TextBlock FontSize="16" Text="Gesamtpreis Ausstattung: 0.00 CHF" />
-                                <TextBlock FontSize="16" FontWeight="Bold" Text="Gesamtpreis*: 128'000.00 CHF" />
+                                <TextBlock Name="BasePrice" FontSize="16" Text="Fahrzeuggrundpreis: 128'000.00 CHF" />
+                                <TextBlock Name="PartPrice" FontSize="16" Text="Gesamtpreis Ausstattung: 0.00 CHF" />
+                                <TextBlock Name="TotalPrice" FontSize="16" FontWeight="Bold" Text="Gesamtpreis*: 128'000.00 CHF" />
                             </StackPanel>
-                            <StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="10, 10, 10, 0">
-                                    <TextBlock Text="Sportluftfilter" Margin="0, 0, 50, 0" />
-                                    <TextBlock Text="CHF 700.0" />
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="10, 0, 10, 0">
-                                    <TextBlock Text="Sportluftfilter" Margin="0, 0, 50, 0" />
-                                    <TextBlock Text="CHF 700.0" />
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="10, 0, 10, 0">
-                                    <TextBlock Text="Sportluftfilter" Margin="0, 0, 50, 0" />
-                                    <TextBlock Text="CHF 700.0" />
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="10, 0, 10, 0">
-                                    <TextBlock Text="Sportluftfilter" Margin="0, 0, 50, 0" />
-                                    <TextBlock Text="CHF 700.0" />
-                                </StackPanel>
-                            </StackPanel>
+                            <ScrollViewer Name="_Scrollviewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="100">
+                                <Grid x:Name="CarPartList" Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </ScrollViewer>
                         </DockPanel>
                     </DockPanel>
                     <StackPanel Orientation="Horizontal" Background="LightGray">
                         <StackPanel Width="100"  Grid.Column="0" Background="LightGray" Margin="10, 10, 10, 0">
                             <TextBlock Name="MaxPower" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="5, 5, 5, 2" />
-                            <TextBlock  Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Text="+10 PS" Margin="0, 0, 0, 10" />
+                            <TextBlock Name="MaxPower_Diff" Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Margin="0, 0, 0, 10" />
                         </StackPanel>
                         <StackPanel Width="100"  Grid.Column="1" Background="LightGray" Margin="10, 10, 10, 0">
                             <TextBlock Name="MaxTorque" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="5, 5, 5, 2" />
-                            <TextBlock Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Text="+10 Nm" Margin="0, 0, 0, 10" />
+                            <TextBlock Name="MaxTorque_Diff" Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Margin="0, 0, 0, 10" />
                         </StackPanel>
                         <StackPanel Width="100"  Grid.Column="1" Background="LightGray" Margin="10, 10, 10, 0">
-                            <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="1983 ccm" Margin="5, 5, 5, 2" />
-                            <TextBlock Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Text="" Margin="0, 0, 0, 10" />
-                        </StackPanel>
-                        <StackPanel Width="200"  Grid.Column="1" Background="LightGray" Margin="10, 10, 10, 0">
-                            <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="0-100 km/h: 2.0 s" Margin="5, 5, 5, 2" />
-                            <TextBlock Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Text="- 1.0s" Margin="0, 0, 0, 10" />
+                            <TextBlock Name="Displacment" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="5, 5, 5, 2" />
+                            <TextBlock Name="Displacment_Diff" Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Text="" Margin="0, 0, 0, 10" />
                         </StackPanel>
                         <StackPanel Width="100"  Grid.Column="1" Background="LightGray" Margin="10, 10, 10, 0">
-                            <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="450 Nm" Margin="5, 5, 5, 2" />
-                            <TextBlock Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Text="+10 Nm" Margin="0, 0, 0, 10" />
+                            <TextBlock Name="ZeroToSixty" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="5, 5, 5, 2" />
+                            <TextBlock Name="ZeroToSixty_Diff" Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Margin="0, 0, 0, 10" />
                         </StackPanel>
                         <StackPanel Width="100"  Grid.Column="1" Background="LightGray" Margin="10, 10, 10, 0">
-                            <TextBlock HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Text="450 Nm" Margin="5, 5, 5, 2" />
-                            <TextBlock Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Text="+10 Nm" Margin="0, 0, 0, 10" />
+                            <TextBlock Name="MaxTrackSpeed" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="5, 5, 5, 2" />
+                            <TextBlock Name="MaxTrackSpeed_Diff" Foreground="#00c110" FontWeight="Bold" HorizontalAlignment="Center" Margin="0, 0, 0, 10" />
                         </StackPanel>
                     </StackPanel>
                     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                        <StackPanel Margin="10">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Sportluftfilter" FontSize="16" Margin="0, 0, 100, 0" />
-                                <TextBlock Text="CHF 700.0" FontSize="16" Margin="0, 0, 500, 0"/>
-                                <Button Content="+" Style="{StaticResource WhiteButton}" FontSize="16" Width="50" HorizontalAlignment="Left" />
-                            </StackPanel>
+                        <StackPanel Margin="10" Name="PartList">
                         </StackPanel>
                     </ScrollViewer>
                 </StackPanel>
