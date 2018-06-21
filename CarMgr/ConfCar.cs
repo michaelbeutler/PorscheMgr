@@ -94,6 +94,7 @@ namespace CarMgr
         public double ZeroToSixty { get => zeroToSixty; set => zeroToSixty = value; }
         public double TopTrackSpeed { get => topTrackSpeed; set => topTrackSpeed = value; }
         public double Displacment { get => displacment; set => displacment = value; }
+        public List<Part> Parts { get => parts; set => parts = value; }
 
         public string GetCarBasePrice()
         {

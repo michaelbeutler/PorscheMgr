@@ -44,6 +44,39 @@ namespace CarMgr
             MaxTrackSpeed.Text = (configuration.CarBase.Performance.TopTrackSpeed + configuration.TopTrackSpeed) + " km/h";
         }
 
+        private void GetDiffString(String request)
+        {
+            double diffValue = 0;
+            char plusOperator = '+';
+            char minusOperator = '-';
+            TextBlock diffField = null;
+            string suffix = "";
+            switch (request)
+            {
+                case "MAXPOWER":
+                    diffValue = configuration.Horsepower;
+                    diffField = MaxPower_Diff;
+                    suffix = "PS";
+                    break; ;
+            }
+
+            string text = "";
+            if (diffValue == 0)
+            {
+                text = "";
+            } else if (diffValue > 0)
+            {
+                text = plusOperator + " " + diffValue + " " + suffix;
+                diffField.Foreground = 
+            } else if (diffValue < 0)
+            {
+                text = minusOperator + " " + diffValue + " " + suffix;
+                diffField.Foreground = 
+            }
+
+            diffField.Text = text;
+        }
+
         private string GetDiffValue()
         {
             return null;
@@ -84,29 +117,40 @@ namespace CarMgr
         {
             configuration.AddPart(p);
             Load();
+            LoadCarParts();
+        }
 
-            TextBlock name = new TextBlock();
-            name.Text = p.Name;
-            name.Margin = new Thickness(0, 0, 50, 0);
-            name.SetValue(Grid.ColumnProperty, 0);
-            name.SetValue(Grid.RowProperty, y);
+        private void LoadCarParts()
+        {
+            y = 0;
+            CarPartList.Children.RemoveRange(0, CarPartList.Children.Count);
+            foreach (Part p in configuration.Parts)
+            {
+                TextBlock name = new TextBlock();
+                name.Text = p.Name;
+                name.Margin = new Thickness(0, 0, 50, 0);
+                name.SetValue(Grid.ColumnProperty, 0);
+                name.SetValue(Grid.RowProperty, y);
 
-            TextBlock price = new TextBlock();
-            price.Text = "CHF " + p.Price;
-            price.SetValue(Grid.ColumnProperty, 1);
-            price.SetValue(Grid.RowProperty, y);
+                TextBlock price = new TextBlock();
+                price.Text = "CHF " + p.Price;
+                price.SetValue(Grid.ColumnProperty, 1);
+                price.SetValue(Grid.RowProperty, y);
 
-            CarPartList.RowDefinitions.Add(new RowDefinition());
-            CarPartList.Children.Add(name);
-            CarPartList.Children.Add(price);
-            y++;
-            _Scrollviewer.ScrollToEnd();
+                CarPartList.RowDefinitions.Add(new RowDefinition());
+                CarPartList.Children.Add(name);
+                CarPartList.Children.Add(price);
+                y++;
+                _Scrollviewer.ScrollToEnd();
+            }
+            
         }
 
         private void RemovePartFromCar(Part p)
         {
             configuration.RemovePart(p);
             Load();
+            LoadCarParts();
         }
 
         private void ButtonAddRemove_Click(object sender, RoutedEventArgs e, Part p)
