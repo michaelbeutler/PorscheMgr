@@ -35,12 +35,16 @@ namespace CarMgr
             double torque = double.Parse(row["part_torque"].ToString());
             double maxrpm = double.Parse(row["part_maxrpm"].ToString());
             double displacement = double.Parse(row["part_displacement"].ToString());
+            double toptrackspeed = double.Parse(row["part_toptrackspeed"].ToString());
+            double zerotosixty = double.Parse(row["part_zerotosixty"].ToString());
+            double stroke = double.Parse(row["part_stroke"].ToString());
+            double bore = double.Parse(row["part_bore"].ToString());
             string partType = row["part_type"].ToString();
 
             if (partType == null || partType == "")
             {
                 // Udpate part table
-                return new PerformancePart(description, image, name, price, horsepower, torque, 0, 0, maxrpm, 0, 0, displacement);
+                return new PerformancePart(description, image, name, price, horsepower, torque, toptrackspeed, zerotosixty, maxrpm, stroke, bore, displacement);
             } else
             {
                 return new OpticPart(description, image, name, price, partType);

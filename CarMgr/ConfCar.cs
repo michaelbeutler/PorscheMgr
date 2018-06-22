@@ -9,7 +9,6 @@ namespace CarMgr
     class ConfCar
     {
         private Car carBase;
-        private Car carConf;
 
         private double priceParts = 0.0;
         private double horsepower = 0.0;
@@ -24,7 +23,6 @@ namespace CarMgr
         public ConfCar(Car carBase)
         {
             this.carBase = carBase;
-            this.carConf = carBase;
         }
 
         public void AddPart(Part part)
@@ -33,25 +31,18 @@ namespace CarMgr
             {
                 PerformancePart _part = part as PerformancePart;
                 Horsepower += _part.MaxPower;
-                carConf.Engine.MaxPower += _part.MaxPower;
 
                 Torque += _part.MaxTorque;
-                carConf.Engine.MaxTorque += _part.MaxTorque;
 
                 maxrpm += _part.MaxEngineSpeed;
-                carConf.Engine.MaxEngineSpeed += _part.MaxEngineSpeed;
 
-                zeroToSixty += _part.ZeroToSixty;
-                carConf.Performance.ZeroToSixty += _part.ZeroToSixty;
+                zeroToSixty -= _part.ZeroToSixty;
 
                 topTrackSpeed += _part.TopTrackSpeed;
-                carConf.Performance.TopTrackSpeed += _part.TopTrackSpeed;
 
                 displacment += _part.Displacment;
-                carConf.Engine.Displacement += _part.Displacment;
             }
 
-            carConf.Price += part.Price;
             PriceParts += part.Price;
             parts.Add(part);
         }
@@ -62,31 +53,23 @@ namespace CarMgr
             {
                 PerformancePart _part = part as PerformancePart;
                 Horsepower -= _part.MaxPower;
-                carConf.Engine.MaxPower -= _part.MaxPower;
 
                 Torque -= _part.MaxTorque;
-                carConf.Engine.MaxTorque -= _part.MaxTorque;
 
                 maxrpm -= _part.MaxEngineSpeed;
-                carConf.Engine.MaxEngineSpeed -= _part.MaxEngineSpeed;
 
-                zeroToSixty -= _part.ZeroToSixty;
-                carConf.Performance.ZeroToSixty -= _part.ZeroToSixty;
+                zeroToSixty += _part.ZeroToSixty;
 
                 topTrackSpeed -= _part.TopTrackSpeed;
-                carConf.Performance.TopTrackSpeed -= _part.TopTrackSpeed;
 
                 displacment -= _part.Displacment;
-                carConf.Engine.Displacement -= _part.Displacment;
             }
 
-            carConf.Price -= part.Price;
             PriceParts -= part.Price;
             parts.Remove(part);
         }
 
         public Car CarBase { get => carBase; set => carBase = value; }
-        public Car CarConf { get => carConf; set => carConf = value; }
         public double PriceParts { get => priceParts; set => priceParts = value; }
         public double Horsepower { get => horsepower; set => horsepower = value; }
         public double Torque { get => torque; set => torque = value; }
@@ -98,7 +81,7 @@ namespace CarMgr
 
         public string GetCarBasePrice()
         {
-            return Math.Round(Math.Round(CarConf.Price * 20, MidpointRounding.AwayFromZero) / 20, 1) + " CHF";
+            return Math.Round(Math.Round(CarBase.Price * 20, MidpointRounding.AwayFromZero) / 20, 1) + " CHF";
         }
 
         public string GetPartPrice()
@@ -108,7 +91,7 @@ namespace CarMgr
 
         public string GetTotalPrice()
         {
-            return Math.Round(Math.Round(CarConf.Price * 20, MidpointRounding.AwayFromZero) / 20, 1) + " CHF";
+            return Math.Round(Math.Round((CarBase.Price + PriceParts) * 20, MidpointRounding.AwayFromZero) / 20, 1) + " CHF";
         }
     }
 }

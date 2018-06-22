@@ -29,6 +29,15 @@ namespace CarMgr
             {
                 AddPartToList(part);
             }
+
+            var fullFilePath = c.Image2;
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
+            bitmap.EndInit();
+
+            CarImage.Source = bitmap;
         }
 
         private void Load()
@@ -37,18 +46,30 @@ namespace CarMgr
             BasePrice.Text = "Fahrzeuggrundpreis: " + configuration.GetCarBasePrice();
             PartPrice.Text = "Gesamtpreis Ausstattung: " + configuration.GetPartPrice();
             TotalPrice.Text = "Gesamtpreis*: " + configuration.GetTotalPrice();
+
             MaxPower.Text = (configuration.CarBase.Engine.MaxPower + configuration.Horsepower) + " PS";
+            GetDiffString("MAXPOWER");
+
             MaxTorque.Text = (configuration.CarBase.Engine.MaxTorque + configuration.Torque) + " Nm";
+            GetDiffString("MAXTORQUE");
+
             Displacment.Text = (configuration.CarBase.Engine.Displacement + configuration.Displacment) + " cm³";
+            GetDiffString("DISPLACEMENT");
+
             ZeroToSixty.Text = (configuration.CarBase.Performance.ZeroToSixty + configuration.ZeroToSixty) + " s";
+            GetDiffString("ZEROTOSIXTY");
+
             MaxTrackSpeed.Text = (configuration.CarBase.Performance.TopTrackSpeed + configuration.TopTrackSpeed) + " km/h";
+            GetDiffString("TOPTRACKSPEED");
         }
 
         private void GetDiffString(String request)
         {
             double diffValue = 0;
             char plusOperator = '+';
-            char minusOperator = '-';
+            char minusOperator = ' ';
+            string plusColor = "#16aa2c";
+            string minusColor = "#d5001c";
             TextBlock diffField = null;
             string suffix = "";
             switch (request)
@@ -57,6 +78,32 @@ namespace CarMgr
                     diffValue = configuration.Horsepower;
                     diffField = MaxPower_Diff;
                     suffix = "PS";
+                    break; ;
+
+                case "MAXTORQUE":
+                    diffValue = configuration.Torque;
+                    diffField = MaxTorque_Diff;
+                    suffix = "Nm";
+                    break; ;
+
+                case "DISPLACEMENT":
+                    diffValue = configuration.Displacment;
+                    diffField = Displacment_Diff;
+                    suffix = "cm³";
+                    break; ;
+
+                case "ZEROTOSIXTY":
+                    diffValue = configuration.ZeroToSixty;
+                    diffField = ZeroToSixty_Diff;
+                    suffix = "s";
+                    plusColor = "#d5001c";
+                    minusColor = "#16aa2c"; 
+                    break; ;
+
+                case "TOPTRACKSPEED":
+                    diffValue = configuration.TopTrackSpeed;
+                    diffField = MaxTrackSpeed_Diff;
+                    suffix = "km/h";
                     break; ;
             }
 
@@ -67,11 +114,11 @@ namespace CarMgr
             } else if (diffValue > 0)
             {
                 text = plusOperator + " " + diffValue + " " + suffix;
-                diffField.Foreground = 
+                diffField.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(plusColor));
             } else if (diffValue < 0)
             {
                 text = minusOperator + " " + diffValue + " " + suffix;
-                diffField.Foreground = 
+                diffField.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(minusColor));
             }
 
             diffField.Text = text;
@@ -94,7 +141,7 @@ namespace CarMgr
 
             TextBlock price = new TextBlock();
             price.Text = "CHF " + part.Price;
-            price.Margin = new Thickness(0, 0, 500, 0);
+            price.Margin = new Thickness(0, 0, 200, 0);
             price.FontSize = 16;
 
             Button add = new Button();

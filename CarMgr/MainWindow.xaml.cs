@@ -32,7 +32,14 @@ namespace CarMgr
                 AddCar(c);
                 SetDetails(c);
             }
-            Details_Button.Click += delegate (object sender, RoutedEventArgs e) { ButtonConfigure_Click(sender, e, selectedCar); };
+            if (selectedCar != null)
+            {
+                Details_Button.Click += delegate (object sender, RoutedEventArgs e) { ButtonConfigure_Click(sender, e, selectedCar); };
+            } else
+            {
+                Details_Button.IsEnabled = false;
+            }
+            
         }
 
         private int x = 0;
@@ -47,11 +54,14 @@ namespace CarMgr
             StackPanel panel  = new StackPanel();
 
             Image image = new Image();
-            //image.Source = new BitmapImage(new Uri(c.Image));
-            if (File.Exists(c.Image))
-            {
-                image.Source = new BitmapImage(new Uri(c.Image, UriKind.RelativeOrAbsolute));
-            }
+            var fullFilePath = c.Image;
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
+            bitmap.EndInit();
+
+            image.Source = bitmap;
             image.Width = 150;
             image.SetValue(Grid.RowProperty, 0);
 

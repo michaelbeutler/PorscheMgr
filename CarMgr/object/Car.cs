@@ -10,6 +10,7 @@ namespace CarMgr
 		private string name;
 		private int year;
 		private string image;
+        private string image2;
 		private double price;
 		private Engine engine;
 		private Body body;
@@ -20,12 +21,13 @@ namespace CarMgr
 		private Transmission transmission;
 		private List<Part> parts;
 
-        public Car(int id, string name, int year, string image, double price, Engine engine, Body body, ChassisAndSuspension chassisAndSuspension, FuelConsumption fuelConsumption, Brand brand, Performance performance, Transmission transmission)
+        public Car(int id, string name, int year, string image, string image2, double price, Engine engine, Body body, ChassisAndSuspension chassisAndSuspension, FuelConsumption fuelConsumption, Brand brand, Performance performance, Transmission transmission)
         {
             ID = id;
             Name = name;
             Year = year;
             Image = image;
+            Image2 = image2;
             Price = price;
             Engine = engine;
             Body = body;
@@ -50,6 +52,7 @@ namespace CarMgr
         public Performance Performance { get => performance; set => performance = value; }
         public Transmission Transmission { get => transmission; set => transmission = value; }
         public List<Part> Parts { get => parts; set => parts = value; }
+        public string Image2 { get => image2; set => image2 = value; }
     }
 
 }

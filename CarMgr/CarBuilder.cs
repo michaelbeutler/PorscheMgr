@@ -31,6 +31,7 @@ namespace CarMgr
             int year = int.Parse(row["car_year"].ToString());
             double price = double.Parse(row["car_price"].ToString());
             string image = row["car_image"].ToString();
+            string image2 = row["car_image2"].ToString();
 
             // Engine
             string engineLayout = row["engine_enginelayout"].ToString();
@@ -81,7 +82,7 @@ namespace CarMgr
             string automaticTransmission = row["transmission_automatictransmission"].ToString();
             Transmission transmission = new Transmission(drivetrain, manualTransmission, automaticTransmission);
 
-            Car car = new Car(id, name, year, image, price, engine, body, chassisAndSuspension, fuelConsumption, brand, performance, transmission);
+            Car car = new Car(id, name, year, image, image2, price, engine, body, chassisAndSuspension, fuelConsumption, brand, performance, transmission);
             return car;
         }
 	}

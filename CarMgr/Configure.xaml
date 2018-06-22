@@ -146,7 +146,7 @@
 
                 <StackPanel>
                     <DockPanel>
-                        <Image Source="C:\\Users\\winmed\\Documents\\Visual Studio 2015\\Projects\\PorscheConfigurator\\PorscheConfigurator\\images\\911\\911_Carrera\\911_Carrera_1.jpg" Width="450" HorizontalAlignment="Left" Margin="10" />
+                        <Image Name="CarImage" Width="450" HorizontalAlignment="Left" Margin="10" />
                         <DockPanel DockPanel.Dock="Right" Margin="20" Background="LightGray">
                             <StackPanel DockPanel.Dock="Top">
                                 <TextBlock Name="CarName" Margin="10, 10, 10, 1" FontSize="20" FontWeight="Bold"/>

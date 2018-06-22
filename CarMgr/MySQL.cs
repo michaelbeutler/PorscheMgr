@@ -24,8 +24,8 @@ namespace CarMgr
         {
             server = "localhost";
             database = "carmgr_db";
-            username = "carmgr";
-            password = "UuP@QaZnz`%92TvF";
+            username = "root";
+            password = "";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";" + "SslMode=none";
