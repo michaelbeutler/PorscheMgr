@@ -96,7 +96,7 @@ namespace CarMgr
             border.SetValue(Grid.RowProperty, y);
             CarList.Children.Add(border);
 
-            if (x < 3)
+            if (x < 2)
             { 
                 x++;
             } else
