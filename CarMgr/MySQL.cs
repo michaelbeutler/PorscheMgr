@@ -1,3 +1,4 @@
+using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,46 @@ namespace CarMgr
 
         private void Initialize()
         {
-            server = "localhost";
-            database = "carmgr_db";
-            username = "root";
-            password = "";
+            
+            string ServerHost = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\GIBMIT\CarMgr", "host", null);
+            if (ServerHost != null)
+            {
+                server = ServerHost;
+            } else
+            {
+                server = "localhost";
+            }
+
+            string ServerDatabase = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\GIBMIT\CarMgr", "db", null);
+            if (ServerDatabase != null)
+            {
+                database = ServerDatabase;
+            }
+            else
+            {
+                database = "carmgr_db";
+            }
+
+            string ServerUsername = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\GIBMIT\CarMgr", "username", null);
+            if (ServerUsername != null)
+            {
+                username = ServerUsername;
+            }
+            else
+            {
+                username = "root";
+            }
+
+            string ServerPassword = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\GIBMIT\CarMgr", "password", null);
+            if (ServerPassword != null)
+            {
+                password = ServerPassword;
+            }
+            else
+            {
+                password = "";
+            }
+
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";" + "SslMode=none";
