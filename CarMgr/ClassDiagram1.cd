@@ -14,38 +14,31 @@
       <FileName>CarBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CarMgr.Configure" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="CarMgr.ConfCar" Collapsed="true">
     <Position X="7" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAgAAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AAAAQIEAgECgECAAIFAACAAAAAwQgAAEEQAAAABAIAA=</HashCode>
+      <FileName>ConfCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarMgr.Configure" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEwAAAAAAAEAAAABCAAQAAAACgAAAAAAAhgAAAAAA=</HashCode>
       <FileName>Configure.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="CarMgr.Dispatcher" Collapsed="true">
-    <Position X="8.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Dispatcher.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarMgr.FrontController" Collapsed="true">
-    <Position X="12.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FrontController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="CarMgr.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7" Y="2.5" Width="1.5" />
+    <Position X="5.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABACAAAAAQAAAAAAAAAAAABhAAAAAAA=</HashCode>
+      <HashCode>AAAAGAAAAAAAABACAAAAAQEAAAAAAAAAAABhAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="CarMgr.MySQL" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8.75" Y="2.5" Width="1.5" />
+    <Position X="7" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAIQBAAAABAAEAAAAAEAAAAAAACgCAAAI=</HashCode>
       <FileName>MySQL.cs</FileName>
@@ -69,7 +62,7 @@
   <Class Name="CarMgr.Car" Collapsed="true">
     <Position X="10.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAGlAAAABQAAEAAAABABAAQAEQAFABAABQAQAAQBoAA=</HashCode>
+      <HashCode>AAGlAAAABQAAkAAAABABAAQAEQAFABAABQAQAAQBogA=</HashCode>
       <FileName>object\Car.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -88,7 +81,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarMgr.FuelConsumption" Collapsed="true">
-    <Position X="5.25" Y="2.5" Width="1.5" />
+    <Position X="12.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAgAAAAIAAAIACAACAAgAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>object\FuelConsumption.cs</FileName>
@@ -129,10 +122,17 @@
       <FileName>object\Transmission.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="CarMgr.PartBuilder" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PartBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="CarMgr.Program" Collapsed="true">
     <Position X="12.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgACgAAAAAAAAAAAAAAAAAACAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -131,25 +131,33 @@ namespace CarMgr
 
         private void AddPartToList(Part part)
         {
-            StackPanel panel = new StackPanel();
-            panel.Orientation = Orientation.Horizontal;
+            StackPanel panel = new StackPanel
+            {
+                Orientation = Orientation.Horizontal
+            };
 
-            TextBlock name = new TextBlock();
-            name.Text = part.Name;
-            name.Margin = new Thickness(0, 0, 100, 0);
-            name.FontSize = 16;
+            TextBlock name = new TextBlock
+            {
+                Text = part.Name,
+                Margin = new Thickness(0, 0, 100, 0),
+                FontSize = 16
+            };
 
-            TextBlock price = new TextBlock();
-            price.Text = "CHF " + part.Price;
-            price.Margin = new Thickness(0, 0, 200, 0);
-            price.FontSize = 16;
+            TextBlock price = new TextBlock
+            {
+                Text = "CHF " + part.Price,
+                Margin = new Thickness(0, 0, 200, 0),
+                FontSize = 16
+            };
 
-            Button add = new Button();
-            add.Content = "+";
-            add.Style = (Style)FindResource("WhiteButton");
-            add.FontSize = 16;
-            add.Width = 50;
-            add.HorizontalAlignment = HorizontalAlignment.Left;
+            Button add = new Button
+            {
+                Content = "+",
+                Style = (Style)FindResource("WhiteButton"),
+                FontSize = 16,
+                Width = 50,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
             add.Click += delegate (object sender, RoutedEventArgs e) { ButtonAddRemove_Click(sender, e, part); };
 
             panel.Children.Add(name);
@@ -173,14 +181,18 @@ namespace CarMgr
             CarPartList.Children.RemoveRange(0, CarPartList.Children.Count);
             foreach (Part p in configuration.Parts)
             {
-                TextBlock name = new TextBlock();
-                name.Text = p.Name;
-                name.Margin = new Thickness(0, 0, 50, 0);
+                TextBlock name = new TextBlock
+                {
+                    Text = p.Name,
+                    Margin = new Thickness(0, 0, 50, 0)
+                };
                 name.SetValue(Grid.ColumnProperty, 0);
                 name.SetValue(Grid.RowProperty, y);
 
-                TextBlock price = new TextBlock();
-                price.Text = "CHF " + p.Price;
+                TextBlock price = new TextBlock
+                {
+                    Text = "CHF " + p.Price
+                };
                 price.SetValue(Grid.ColumnProperty, 1);
                 price.SetValue(Grid.RowProperty, y);
 

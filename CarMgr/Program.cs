@@ -8,7 +8,6 @@ namespace CarMgr
 	public class Program
 	{
 		private static ICarConfiguratorDAO dao = new MySQL();
-		private static FrontController frontController;
         private static CarBuilder carbuilder = new CarBuilder();
         private static PartBuilder partBuilder = new PartBuilder();
 

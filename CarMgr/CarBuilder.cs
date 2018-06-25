@@ -6,8 +6,16 @@ using System.Windows;
 
 namespace CarMgr
 {
+    /// <summary>
+    /// With this class you can build a car object and parse cars from sql data
+    /// </summary>
 	public class CarBuilder
 	{
+        /// <summary>
+        /// Build from List
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
 		public List<Car> Build(DataTable data)
 		{
             List<Car> cars = new List<Car>();
@@ -18,11 +26,21 @@ namespace CarMgr
             return cars;
 		}
 
+        /// <summary>
+        /// Build
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public Car Build(DataRow data)
         {
             return Pharse(data);
         }
 
+        /// <summary>
+        /// Parse car
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
         private Car Pharse(DataRow row)
         {
             // Car

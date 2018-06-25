@@ -8,6 +8,9 @@ using System.Windows;
 
 namespace CarMgr
 {
+    /// <summary>
+    /// This method builds parts and parse
+    /// </summary>
     class PartBuilder
     {
         public List<Part> Build(DataTable data)

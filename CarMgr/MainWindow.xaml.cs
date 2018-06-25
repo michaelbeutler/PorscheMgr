@@ -26,12 +26,20 @@ namespace CarMgr
         public MainWindow()
         {
             InitializeComponent();
+            // Add RowDefinition to CarList
             CarList.RowDefinitions.Add(new RowDefinition());
+
+            // Loop throw each Car object in return value of GetAllCars();
             foreach (Car c in Program.GetAllCars())
             {
+                // Add car to list
                 AddCar(c);
+
+                // Set the data on the details site
                 SetDetails(c);
             }
+
+            // Set selected car and update the click event on the Details button
             if (selectedCar != null)
             {
                 Details_Button.Click += delegate (object sender, RoutedEventArgs e) { ButtonConfigure_Click(sender, e, selectedCar); };
@@ -42,12 +50,17 @@ namespace CarMgr
             
         }
 
+        /// <summary>
+        /// Add a car to CarList and if needed create a new row.
+        /// </summary>
         private int x = 0;
         private int y = 0;
         private void AddCar(Car c)
         {
-            Border border = new Border();
-            border.Style = (Style)FindResource("BorderCar");
+            Border border = new Border
+            {
+                Style = (Style)FindResource("BorderCar")
+            };
             RoutedEventHandler h = delegate (object sender, RoutedEventArgs e) { ShowDetails_Click(sender, e, c); };
             border.AddHandler(Border.MouseDownEvent,  h);
 
@@ -65,24 +78,30 @@ namespace CarMgr
             image.Width = 150;
             image.SetValue(Grid.RowProperty, 0);
 
-            TextBlock textblockName = new TextBlock();
-            textblockName.Text = c.Brand.Name + " " + c.Name;
-            textblockName.HorizontalAlignment = HorizontalAlignment.Center;
-            textblockName.FontSize = 12;
-            textblockName.FontWeight = FontWeights.Bold;
-            textblockName.Margin = new Thickness(2, 2, 2, 2);
+            TextBlock textblockName = new TextBlock
+            {
+                Text = c.Brand.Name + " " + c.Name,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                FontSize = 12,
+                FontWeight = FontWeights.Bold,
+                Margin = new Thickness(2, 2, 2, 2)
+            };
             textblockName.SetValue(Grid.RowProperty, 1);
 
-            TextBlock textblockPrice = new TextBlock();
-            textblockPrice.Text = "CHF " + c.Price +  " exkl. MwST.";
-            textblockPrice.HorizontalAlignment = HorizontalAlignment.Center;
+            TextBlock textblockPrice = new TextBlock
+            {
+                Text = "CHF " + c.Price + " exkl. MwST.",
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
             textblockPrice.SetValue(Grid.RowProperty, 2);
 
-            Button button = new Button();
-            button.Content = "Konfigurieren";
-            button.Margin = new Thickness(0, 10, 0, 0);
-            button.Width = 150;
-            button.Style = (Style)FindResource("WhiteButtonBorder");
+            Button button = new Button
+            {
+                Content = "Konfigurieren",
+                Margin = new Thickness(0, 10, 0, 0),
+                Width = 150,
+                Style = (Style)FindResource("WhiteButtonBorder")
+            };
             button.Click += delegate (object sender, RoutedEventArgs e) { ButtonConfigure_Click(sender, e, c); };
             button.SetValue(Grid.RowProperty, 3);
 
@@ -96,6 +115,7 @@ namespace CarMgr
             border.SetValue(Grid.RowProperty, y);
             CarList.Children.Add(border);
 
+            // If there are more than 3 cars in one row go to the next row
             if (x < 2)
             { 
                 x++;
@@ -107,28 +127,58 @@ namespace CarMgr
             }
         }
 
+        /// <summary>
+        /// Make the window draggble
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
 
+        /// <summary>
+        /// Close the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Open the configure window with the selected car
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="c"></param>
         private void ButtonConfigure_Click(object sender, RoutedEventArgs e, Car c)
         {
             new Configure(c).Show();
         }
 
+        /// <summary>
+        /// Selected car
+        /// </summary>
         private Car selectedCar = null;
+
+        /// <summary>
+        /// Set the data in the details part of the window on the left site by calling the SetDetails method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="c"></param>
         private void ShowDetails_Click(object sender, RoutedEventArgs e, Car c)
         {
             SetDetails(c);
         }
 
+        /// <summary>
+        /// Set the data in the details part of the window on the left site
+        /// </summary>
+        /// <param name="c"></param>
         private void SetDetails(Car c)
         {
             selectedCar = c;

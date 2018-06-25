@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CarMgr
 {
+    /// <summary>
+    /// This method represents the current configuration selected in the configure window
+    /// </summary>
     class ConfCar
     {
         private Car carBase;
@@ -25,6 +28,10 @@ namespace CarMgr
             this.carBase = carBase;
         }
 
+        /// <summary>
+        /// Add Parts to the current configuration
+        /// </summary>
+        /// <param name="part"></param>
         public void AddPart(Part part)
         {
             if (part is PerformancePart)
@@ -47,6 +54,10 @@ namespace CarMgr
             parts.Add(part);
         }
 
+        /// <summary>
+        /// Remove Part from the current configuration
+        /// </summary>
+        /// <param name="part"></param>
         public void RemovePart(Part part)
         {
             if (part is PerformancePart)

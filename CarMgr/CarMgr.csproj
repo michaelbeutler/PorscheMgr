@@ -38,6 +38,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>2</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -98,9 +100,7 @@
     <Compile Include="object\Car.cs" />
     <Compile Include="CarBuilder.cs" />
     <Compile Include="object\ChassisAndSuspension.cs" />
-    <Compile Include="Dispatcher.cs" />
     <Compile Include="object\Engine.cs" />
-    <Compile Include="FrontController.cs" />
     <Compile Include="object\FuelConsumption.cs" />
     <Compile Include="ICarConfiguratorDAO.cs" />
     <Compile Include="MainWindow.xaml.cs">
