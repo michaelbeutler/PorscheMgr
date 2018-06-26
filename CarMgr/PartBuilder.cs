@@ -34,18 +34,19 @@ namespace CarMgr
             double price = double.Parse(row["part_price"].ToString());
             string description = row["part_description"].ToString();
             string image = row["part_image"].ToString();
-            double horsepower = double.Parse(row["part_horsepower"].ToString());
-            double torque = double.Parse(row["part_torque"].ToString());
-            double maxrpm = double.Parse(row["part_maxrpm"].ToString());
-            double displacement = double.Parse(row["part_displacement"].ToString());
-            double toptrackspeed = double.Parse(row["part_toptrackspeed"].ToString());
-            double zerotosixty = double.Parse(row["part_zerotosixty"].ToString());
-            double stroke = double.Parse(row["part_stroke"].ToString());
-            double bore = double.Parse(row["part_bore"].ToString());
             string partType = row["part_type"].ToString();
 
             if (partType == null || partType == "")
             {
+                double horsepower = double.Parse(row["part_horsepower"].ToString());
+                double torque = double.Parse(row["part_torque"].ToString());
+                double maxrpm = double.Parse(row["part_maxrpm"].ToString());
+                double displacement = double.Parse(row["part_displacement"].ToString());
+                double toptrackspeed = double.Parse(row["part_toptrackspeed"].ToString());
+                double zerotosixty = double.Parse(row["part_zerotosixty"].ToString());
+                double stroke = double.Parse(row["part_stroke"].ToString());
+                double bore = double.Parse(row["part_bore"].ToString());
+
                 // Udpate part table
                 return new PerformancePart(description, image, name, price, horsepower, torque, toptrackspeed, zerotosixty, maxrpm, stroke, bore, displacement);
             } else
